@@ -149,10 +149,17 @@ elif args.function == 'finetune':
         warmup_tokens=512 * 20,
         final_tokens=200 * len(pretrain_dataset) * block_size,
         num_workers=4,
-        writer=writer
+        writer=writer,
+        ckpt_path=args.writing_params_path
     )
     if args.reading_params_path is not None:
+        state_dict = torch.load(args.reading_params_path, map_location=device)
+        model.load_state_dict(state_dict)
 
+    finetune_train_dataset = dataset.NameDataset(pretrain_dataset,
+                                                 open(args.finetune_corpus_path, encoding='utf-8').read())
+    trainer_func = trainer.Trainer(model, finetune_train_dataset, None, tconf)
+    trainer_func.train()
     ### END YOUR CODE ###
 elif args.function == 'evaluate':
     assert args.outputs_path is not None
