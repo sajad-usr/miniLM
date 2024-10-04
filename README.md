@@ -3,5 +3,8 @@ This repository contains my solutions to assignment 4 of [CS224n](https://web.st
 
 The goal of this assignment is to pretrain a Transformer model on Wikipedia text data, and the finetune it for the downstream task which is predicting birthplace.
 
+## Part (d):
+In this part, we only finetune our model on the downstream task dataset. The accuracy of the trained model on validation data is **1.4%** which is expected as the model is not pretrained.
+
 ## Part (f):
-In this part, we do both pretraining and finetuning. The accuracy of the trained model on dev model is **15.8%** which satisfies the question requirements which asks for accuracy of at least 15%.
+In this part, we do both pretraining and finetuning. The accuracy of the trained model on validation data is **15.8%** which satisfies the question requirements that asks for accuracy of at least 15%.
