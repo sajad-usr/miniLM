@@ -7,4 +7,7 @@ The goal of this assignment is to pretrain a Transformer model on Wikipedia text
 In this part, we only finetune our model on the downstream task dataset. The accuracy of the trained model on validation data is **1.4%** which is expected as the model is not pretrained.
 
 ## Part (f):
-In this part, we do both pretraining and finetuning. The accuracy of the trained model on validation data is **15.8%** which satisfies the question requirements that asks for accuracy of at least 15%.
+In this part, we do both pretraining and finetuning. The accuracy of the trained model on validation data is **15.8%**, which satisfies the question requirements that asks for accuracy of at least 15%.
+
+## Part (g): 
+Here, we use RoPE as our positional embeddings. The accuracy of the trained model on validation data increases to **27%**.
