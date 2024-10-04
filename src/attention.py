@@ -68,7 +68,8 @@ def apply_rotary_emb(x, rope_cache):
     # rope_cache: (max_positions, dim/2, 2)
     B, nh, T, dim = x.size()
     rope_cache = rope_cache[:T]
-    x = x.view(B, nh, T, dim/2, 2)
+    assert dim % 2 == 0
+    x = x.view((B, nh, T, dim//2, 2))
     x = torch.view_as_complex(x)
     rope_cache = torch.view_as_complex(rope_cache)
     rotated_x = x * rope_cache
